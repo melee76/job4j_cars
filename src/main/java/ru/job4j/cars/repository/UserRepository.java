@@ -105,6 +105,8 @@ public class UserRepository {
         } catch (Exception e) {
             session.getTransaction().rollback();
             return Optional.empty();
+        } finally {
+            session.close();
         }
     }
 
